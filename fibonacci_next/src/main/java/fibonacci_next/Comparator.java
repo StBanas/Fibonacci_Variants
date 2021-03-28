@@ -7,8 +7,8 @@ public class Comparator {
 
         long start1 = System.currentTimeMillis();
         int result1;
-        FibonacciPlain fb = new FibonacciPlain();
-        result1 = fb.calculateFibonacciPlain(11);
+        FibonacciPlain fp = new FibonacciPlain(null,0);
+        result1 = fp.calculateFibonacciPlain(11);
         long stop1 = System.currentTimeMillis();
         System.out.println("test time 1 " + (stop1 - start1) + " ms");
         System.out.println("result 1 = " + result1);
@@ -54,29 +54,25 @@ public class Comparator {
         int[] numbers;
         int size;
 
-        public  FibonacciPlain() { //
-//            this.numbers = numbers;
-//            this.size = size;
-    }
-    public  FibonacciPlain(int[] numbers) {
+        public  FibonacciPlain(int[] numbers,int size) { //
             this.numbers = numbers;
             this.size = size;
-    }
-    public int calculateFibonacciPlain(int k) {
 
-            FibonacciPlain fp = new FibonacciPlain();  //numbers,size
+       }
+        public int calculateFibonacciPlain(int k) {
+
+            FibonacciPlain fp = new FibonacciPlain(null,0);  //
                 int sum =0;
                 numbers[0] = 1;
                 numbers[1] = 1;
-//                numbers[2] = 2;
                 for (int i = 2; i < k+1; i++) {
-                    numbers[i] = numbers[i - 1] + numbers[i - 2];
-                    sum = numbers[i - 1] + numbers[i - 2];
+                    numbers[i] = numbers[i-1] + numbers[i-2];
 
-                fp.addValue(numbers[i]);
-            System.out.println("liczba " + (i + 1) + "-ta wynosi " + numbers[i]);
+                    fp.addValue(numbers[i]);
+
+            System.out.println("liczba " + (i + 1) + " wynosi " + numbers[i]);
         }
-        return sum;
+        return numbers[k];
     }
 
     public void addValue(int number) {
