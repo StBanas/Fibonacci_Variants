@@ -14,7 +14,7 @@ public class Comparator {
     public static void main(String[] args) {
 
         long start1 = System.currentTimeMillis();
-        int result1;
+        int[] result1;
         FibonacciPlain fp = new FibonacciPlain(null, 0);
         result1 = fp.calculateFibonacciPlain(11);
         long stop1 = System.currentTimeMillis();
@@ -32,41 +32,44 @@ public class Comparator {
 //TODO:
 // Wykorzystać plugin analizujący wydajność "jmh" -java microbenchmark; (jmh-core i jmh - generator należy dodać do pml lub gradle};
 
+//TODO
+// Obsłużyć nullPointerException w kodzie poniżej:
 
-    public static class FibonacciPlain {
-        int[] numbers;
-        int size;
 
-        public FibonacciPlain(int[] numbers, int size) { //
-            this.numbers = numbers;
-            this.size = size;
-
-        }
-
-        public int calculateFibonacciPlain(int k) {
-
-            FibonacciPlain fp = new FibonacciPlain(null, 0);  //
-            int sum = 0;
-            numbers[0] = 1;
-            numbers[1] = 1;
-            for (int i = 2; i < k + 1; i++) {
-                numbers[i] = numbers[i - 1] + numbers[i - 2];
-
-                fp.addValue(numbers[i]);
-
-                System.out.println("liczba " + (i + 1) + " wynosi " + numbers[i]);
-            }
-            return numbers[k];
-        }
-
-        public void addValue(int number) {
-            this.size++;
-            int[] newTab = new int[this.size];
-            System.arraycopy(numbers, 0, newTab, 0, numbers.length);
-            newTab[this.size - 1] = number;
-            numbers = newTab;
-        }
-    }
+//    public static class FibonacciPlain {
+//        int[] numbers;
+//        int size;
+//
+//        public FibonacciPlain(int[] numbers, int size) { //
+//            this.numbers = numbers;
+//            this.size = size;
+//
+//        }
+//
+//        public int calculateFibonacciPlain(int k) {
+//
+//            FibonacciPlain fp = new FibonacciPlain(null, 0);  //
+//            int sum = 0;
+//            numbers[0] = 1;
+//            numbers[1] = 1;
+//            for (int i = 2; i < k + 1; i++) {
+//                numbers[i] = numbers[i - 1] + numbers[i - 2];
+//
+//                fp.addValue(numbers[i]);
+//
+//                System.out.println("liczba " + (i + 1) + " wynosi " + numbers[i]);
+//            }
+//            return numbers[k];
+//        }
+//
+//        public void addValue(int number) {
+//            this.size++;
+//            int[] newTab = new int[this.size];
+//            System.arraycopy(numbers, 0, newTab, 0, numbers.length);
+//            newTab[this.size - 1] = number;
+//            numbers = newTab;
+//        }
+//    }
 
     private static int calculateFibonacciRecurance(int k) {
         if (k == 1 || k == 2) {

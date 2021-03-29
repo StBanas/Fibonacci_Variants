@@ -1,6 +1,6 @@
 package fibonacci_next;
 
-public class QuickRunner {
+public class QuickRecuranceRunner {
     public static void main(String[] args) {
         int sum = 0;
         int n = 11;
@@ -17,7 +17,6 @@ public class QuickRunner {
         } else if (k == 2) {
             return 1;
         } else {
-
             return run(k - 1) + run(k - 2);
 
         }
