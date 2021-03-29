@@ -14,7 +14,7 @@ public class Comparator {
     public static void main(String[] args) {
 
         long start1 = System.currentTimeMillis();
-        int[] result1;
+        int result1;
         FibonacciPlain fp = new FibonacciPlain(null, 0);
         result1 = fp.calculateFibonacciPlain(11);
         long stop1 = System.currentTimeMillis();
